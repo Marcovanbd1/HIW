@@ -1,250 +1,427 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Support Playlists — Framing Note for Health Innovation Wessex</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Framing Note — Neighbourhood CoLab × Health Innovation Wessex</title>
+  <meta name="description" content="A short framing note for discussion with Health Innovation Wessex: why the missing layer in health systems isn’t technology, it’s interpretation." />
 
-<style>
-:root{
---bg:#0b0d12;
---text:rgba(255,255,255,0.92);
---muted:rgba(255,255,255,0.65);
---line:rgba(255,255,255,0.14);
---accent:#8cd2ff;
---radius:18px;
---max:980px;
-}
+  <style>
+    :root{
+      --bg:#f7f8fa;
+      --card:#ffffff;
+      --text:#111214;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --accent:#111214;
+      --shadow: 0 10px 25px rgba(17,18,20,0.06);
+      --radius: 14px;
+      --max: 920px;
+    }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
 
-section{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:64px 22px;
-border-bottom:1px solid var(--line);
-}
+    a{ color:var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover{ opacity:0.75; }
 
-.wrap{max-width:var(--max);width:100%}
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 18px 48px;
+    }
 
-h1,h2{letter-spacing:-0.02em;margin:0 0 18px}
-h1{font-size:clamp(2.2rem,4vw,3.2rem)}
-h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+    header{
+      padding: 28px 28px 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-p{font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.65;margin:12px 0;color:var(--text)}
+    .kicker{
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
 
-.lead{font-size:clamp(1.2rem,1.7vw,1.35rem)}
+    h1{
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.15;
+    }
 
-.muted{color:var(--muted)}
+    .sub{
+      margin: 0;
+      color: var(--muted);
+      max-width: 80ch;
+      font-size: 16px;
+    }
 
-.card{
-border:1px solid var(--line);
-border-radius:var(--radius);
-padding:26px 28px;
-margin-top:26px;
-background:linear-gradient(145deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
-}
+    .toc{
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .toc a{
+      text-decoration: none;
+      border-bottom: 1px solid rgba(17,18,20,0.25);
+      padding-bottom: 2px;
+      color: var(--text);
+    }
+    .toc a:hover{ opacity:0.8; }
 
-.big{
-font-size:clamp(1.4rem,2.4vw,1.9rem);
-line-height:1.4;
-}
+    section{
+      margin-top: 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 28px;
+    }
 
-.grid{
-display:grid;
-gap:22px;
-margin-top:28px;
-}
+    h2{
+      margin: 0 0 12px;
+      letter-spacing: -0.01em;
+      font-size: 20px;
+      line-height: 1.25;
+    }
 
-@media(min-width:760px){
-.grid{grid-template-columns:1fr 1fr}
-}
+    p{ margin: 12px 0; max-width: 90ch; }
+    .lead{
+      font-size: 18px;
+      margin-top: 6px;
+    }
 
-.tag{
-display:inline-block;
-padding:6px 12px;
-border:1px solid var(--line);
-border-radius:999px;
-margin-bottom:16px;
-font-size:.8rem;
-color:var(--muted);
-letter-spacing:.08em;
-text-transform:uppercase;
-}
+    .quote{
+      border-left: 4px solid var(--accent);
+      padding: 10px 14px;
+      margin: 14px 0 6px;
+      background: rgba(17,18,20,0.03);
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
 
-.nav{
-position:fixed;
-bottom:22px;
-left:50%;
-transform:translateX(-50%);
-z-index:10;
-}
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+    @media (min-width: 860px){
+      .two-col{ grid-template-columns: 1fr 1fr; }
+    }
 
-.btn{
-background:#11161c;
-border:1px solid var(--line);
-color:var(--text);
-padding:12px 18px;
-border-radius:999px;
-cursor:pointer;
-font-size:.9rem;
-}
+    .panel{
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: rgba(17,18,20,0.02);
+    }
 
-.btn:hover{border-color:var(--accent);color:white}
+    ul{
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+    li{ margin: 6px 0; color: var(--text); }
 
-</style>
+    .muted{ color: var(--muted); }
+
+    details{
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(17,18,20,0.02);
+      padding: 0;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    summary{
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      display:flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details .content{
+      padding: 0 16px 14px;
+      color: var(--muted);
+    }
+
+    .stack{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .stack .row{
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.7);
+    }
+    .stack .row strong{ display:block; margin-bottom: 2px; }
+
+    .callout{
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(17,18,20,0.02);
+    }
+
+    footer{
+      margin-top: 18px;
+      padding: 22px 28px;
+      background: transparent;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-links{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 10px;
+    }
+
+    .toplink{
+      display:inline-block;
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(75,85,99,0.35);
+      padding-bottom: 2px;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="wrap" id="top">
 
-<section>
-<div class="wrap">
-<div class="tag">Framing note</div>
-<h1>The missing layer in health systems isn’t technology.</h1>
-<p class="lead">It’s interpretation.</p>
-<p>Across health and care we are investing rapidly in triage, automation, dashboards, messaging, AI documentation, and digital access.</p>
-<p>But the biggest pressure multiplier isn’t a lack of tools.</p>
-<p class="big">It’s that people struggle to understand what to do next.</p>
-</div>
-</section>
+    <header>
+      <p class="kicker">Framing note</p>
+      <h1>The missing layer in health systems isn’t technology. It’s interpretation.</h1>
+      <p class="sub">
+        Prepared for discussion with <strong>Health Innovation Wessex</strong>. This note is intended to prime the conversation,
+        not to close it. It describes an emerging operational layer: <strong>Navigation Intelligence</strong>.
+      </p>
 
-<section>
-<div class="wrap">
-<h2>The structural problem</h2>
-<div class="card">
-<p>Most systems assume people arrive knowing what they need.</p>
-<p>In reality they arrive with uncertainty, stress, partial understanding, and cognitive overload.</p>
-<p class="big">So navigation demand is being generated by the system itself.</p>
-</div>
-</div>
-</section>
+      <nav class="toc" aria-label="On this page">
+        <a href="#problem">The structural problem</a>
+        <a href="#origin">Origin of this work</a>
+        <a href="#what-exists">What currently exists</a>
+        <a href="#playlists">Support Playlists</a>
+        <a href="#why-now">Why now</a>
+        <a href="#stack">System stack</a>
+        <a href="#works">Why this works</a>
+        <a href="#opportunity">The opportunity</a>
+        <a href="#focus">Conversation focus</a>
+      </nav>
+    </header>
 
-<section>
-<div class="wrap">
-<h2>What currently exists</h2>
-<div class="grid">
-<div class="card">
-<p class="muted">Built everywhere</p>
-<p>Directories</p>
-<p>Service finders</p>
-<p>Referral pathways</p>
-<p>Triage tools</p>
-</div>
-<div class="card">
-<p class="muted">Still missing</p>
-<p>Something that understands a person’s situation</p>
-<p>Explains what matters</p>
-<p>Reduces options</p>
-<p>Shows a clear next step</p>
-</div>
-</div>
-</div>
-</section>
+    <section id="problem">
+      <h2>The missing layer in health systems isn’t technology. It’s interpretation.</h2>
+      <p class="lead">
+        Across health and care we are investing rapidly in triage, automation, dashboards, messaging, AI documentation, and digital access.
+        But the biggest pressure multiplier isn’t a lack of tools. It’s that people struggle to understand what to do next.
+      </p>
 
-<section>
-<div class="wrap">
-<h2>This missing layer now has a name</h2>
-<div class="card">
-<p class="big">Support Playlists</p>
-<p>A Support Playlist is a structured set of next steps generated from a person’s situation, not from a search query.</p>
-</div>
-</div>
-</section>
+      <div class="quote">The structural problem</div>
+      <p>
+        Most systems assume people arrive knowing what they need. In reality they arrive with uncertainty, stress, partial understanding,
+        and cognitive overload. So navigation demand is often generated by the system itself.
+      </p>
 
-<section>
-<div class="wrap">
-<h2>Two entry points. One intelligence layer.</h2>
-<div class="grid">
-<div class="card">
-<p class="muted">Community entry</p>
-<p>Someone says what’s going on</p>
-<p>The system interprets context</p>
-<p>They receive a Support Playlist</p>
-</div>
-<div class="card">
-<p class="muted">Clinical entry</p>
-<p>Consultation or discharge ends</p>
-<p>Clinical context already known</p>
-<p>A Support Playlist is generated</p>
-</div>
-</div>
-</div>
-</section>
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
 
-<section>
-<div class="wrap">
-<h2>Why this matters now</h2>
-<div class="card">
-<p>Until recently, interpreting messy real‑world situations reliably wasn’t technically possible.</p>
-<p>LLMs changed that.</p>
-<p class="big">For the first time, systems can translate human situations into clear next steps.</p>
-</div>
-</div>
-</section>
+    <section id="origin">
+      <h2>Origin of this work</h2>
+      <p>
+        This approach did not begin as a product idea. It emerged from building a live neighbourhood-level digital layer designed to create
+        shared access points and feedback surfaces across services.
+      </p>
+      <p>
+        Once that sensing environment existed, it became possible to see patterns of demand forming earlier and more clearly.
+        That led to developing <strong>Neighbourhood Signals</strong>, a structured way of interpreting emerging real-world pressure.
+      </p>
+      <p>
+        Signals then revealed a second gap: even when systems understand what is happening, individuals still struggle to understand what to do next.
+      </p>
 
-<section>
-<div class="wrap">
-<h2>Where this sits in the system stack</h2>
-<div class="card">
-<p>Triage systems decide urgency.</p>
-<p>Directories store services.</p>
-<p>Booking systems schedule care.</p>
-<p>Clinical systems hold records.</p>
-<p class="big">Support Playlists connect them to human understanding.</p>
-</div>
-</div>
-</section>
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
 
-<section>
-<div class="wrap">
-<h2>Why this is commercially viable</h2>
-<div class="card">
-<p>Most digital health products only create value when the full pathway is integrated.</p>
-<p>Support Playlists create value immediately, even in fragmented systems.</p>
-<p class="big">They work before transformation is complete.</p>
-</div>
-</div>
-</section>
+    <section id="what-exists">
+      <h2>What currently exists</h2>
 
-<section>
-<div class="wrap">
-<h2>Strategic positioning</h2>
-<div class="card">
-<p>Support Playlists are not a directory.</p>
-<p>Not a triage system.</p>
-<p>Not a booking tool.</p>
-<p class="big">They are infrastructure for understanding.</p>
-</div>
-</div>
-</section>
+      <div class="two-col">
+        <div class="panel">
+          <strong>Built everywhere</strong>
+          <ul>
+            <li>Directories</li>
+            <li>Service finders</li>
+            <li>Referral pathways</li>
+            <li>Triage tools</li>
+          </ul>
+        </div>
 
-<section>
-<div class="wrap">
-<h2>The opportunity</h2>
-<div class="card">
-<p>The systems that scale across health economies won’t be those with the most technology.</p>
-<p class="big">They will be those that make navigation feel simple, obvious, and humane.</p>
-</div>
-</div>
-</section>
+        <div class="panel">
+          <strong>Still missing</strong>
+          <p class="muted" style="margin-top:10px;">
+            Something that:
+          </p>
+          <ul>
+            <li>interprets a person’s situation in context</li>
+            <li>explains what matters</li>
+            <li>reduces options</li>
+            <li>shows a clear and proportionate next step</li>
+          </ul>
+        </div>
+      </div>
 
-<section>
-<div class="wrap">
-<h2>Conversation focus</h2>
-<div class="card">
-<p>Neighbourhood Signals shows what systems need.</p>
-<p>Support Playlists shows how individuals move.</p>
-<p class="big">Together they form a new category: Navigation Intelligence.</p>
-</div>
-<p class="muted">Prepared for discussion with Health Innovation Wessex</p>
-</div>
-</section>
+      <div class="callout">
+        <strong>This missing layer now has a name:</strong> <span class="muted">Support Playlists</span>
+      </div>
 
-<div class="nav">
-<button class="btn" onclick="window.scrollBy({top:window.innerHeight,behavior:'smooth'})">Next ↓</button>
-</div>
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
 
+    <section id="playlists">
+      <h2>Support Playlists</h2>
+      <p class="lead">
+        A Support Playlist is a structured set of next steps generated from a person’s situation, not from a search query.
+      </p>
+
+      <details>
+        <summary>Two entry points. One interpretation layer.</summary>
+        <div class="content">
+          <p><strong>Community entry</strong><br>
+            Someone explains what’s going on → context interpreted → Support Playlist returned
+          </p>
+          <p><strong>Clinical entry</strong><br>
+            Consultation or discharge ends → clinical context already known → Support Playlist generated
+          </p>
+        </div>
+      </details>
+
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
+
+    <section id="why-now">
+      <h2>Why this matters now</h2>
+      <p>
+        Until recently, translating messy real-world situations into clear guidance reliably wasn’t technically feasible.
+        Recent advances in language models now make this possible for the first time.
+      </p>
+
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
+
+    <section id="stack">
+      <h2>Where this sits in the system stack</h2>
+
+      <div class="stack" role="list">
+        <div class="row" role="listitem">
+          <strong>Triage systems</strong>
+          Decide urgency.
+        </div>
+        <div class="row" role="listitem">
+          <strong>Directories</strong>
+          Store services.
+        </div>
+        <div class="row" role="listitem">
+          <strong>Booking systems</strong>
+          Schedule care.
+        </div>
+        <div class="row" role="listitem">
+          <strong>Clinical systems</strong>
+          Hold records.
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Support Playlists connect these layers to human understanding.</strong>
+      </div>
+
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
+
+    <section id="works">
+      <h2>Why this works in real systems</h2>
+      <p>
+        Most digital health tools only create value when full pathway integration is complete.
+        Support Playlists can create value immediately, even in fragmented environments.
+        They function before transformation is finished.
+      </p>
+
+      <details>
+        <summary>Strategic positioning</summary>
+        <div class="content">
+          <p>Support Playlists are not:</p>
+          <ul>
+            <li>a directory</li>
+            <li>a triage system</li>
+            <li>a booking tool</li>
+          </ul>
+          <p><strong>They are infrastructure for applied understanding.</strong></p>
+        </div>
+      </details>
+
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
+
+    <section id="opportunity">
+      <h2>The opportunity</h2>
+      <p class="lead">
+        The systems that scale successfully across health economies won’t be those with the most technology.
+        They will be those that make navigation feel simple, obvious, and humane.
+      </p>
+
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
+
+    <section id="focus">
+      <h2>Conversation focus</h2>
+      <p>
+        <strong>Neighbourhood Signals</strong> shows what systems need.<br>
+        <strong>Support Playlists</strong> shows how people move.
+      </p>
+      <p class="quote" style="margin-top:12px;">
+        Together they form a new operational layer: <strong>Navigation Intelligence</strong>.
+      </p>
+
+      <a class="toplink" href="#top">↑ Back to top</a>
+    </section>
+
+    <footer>
+      <div><strong>Prepared for discussion with Health Innovation Wessex</strong></div>
+      <div class="footer-links">
+        <span>Enquiries: <a href="mailto:hello@neighbourhoodcolab.co.uk">hello@neighbourhoodcolab.co.uk</a></span>
+        <span>LinkedIn: <a href="https://www.linkedin.com/in/mark-winterburn-08a614351" target="_blank" rel="noopener noreferrer">Mark Winterburn</a></span>
+      </div>
+    </footer>
+
+  </div>
 </body>
 </html>
